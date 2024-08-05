@@ -11,7 +11,9 @@
       </el-breadcrumb>
     </div>
     <div class="top-bar-right">
-      <div class="bar-tools"></div>
+      <div class="bar-tools">
+        <el-button circle :icon="Refresh" @click="refreshPage" size="small"></el-button>
+      </div>
       <div class="user-tools">
         <el-image class="user-avatar" src="/src/assets/images/tom.jpg"></el-image>
         <el-dropdown class="dropdown-tools">
@@ -35,17 +37,20 @@
 <script setup>
 import {watch,ref} from "vue";
 import useLayoutSettingsStore from '@/store/modules/settings.js'
-import {useRoute} from "vue-router";
-import {ArrowDown, ArrowRight, Expand, Fold} from "@element-plus/icons-vue";
+import {useRoute,useRouter} from "vue-router";
+import {ArrowDown, ArrowRight, Expand, Fold, FullScreen, Refresh} from "@element-plus/icons-vue";
 
 let $route = useRoute()
+let $router = useRouter()
 let currentRoutes = ref($route.matched)
 let layoutSettingsStore = useLayoutSettingsStore()
 
 const changeCollapse = () => {
   layoutSettingsStore.menuCollapse = !layoutSettingsStore.menuCollapse
 }
-
+const refreshPage = () => {
+  $router.replace({path: $route.path})
+}
 watch($route,async (newRoute,OldRoute) => {
   currentRoutes.value = newRoute.matched
 })
@@ -80,16 +85,25 @@ watch($route,async (newRoute,OldRoute) => {
     }
   }
   .top-bar-right{
+    display: flex;
+    align-items: center;
+    .bar-tools{
+      margin-right: 30px;
+    }
     .user-tools{
       display: flex;
       align-items: center;
       .user-avatar{
         border-radius: 50%;
         width: 30px;
+        margin-right: 10px;
       }
       .dropdown-tools{
         cursor: pointer;
-
+        span{
+          display: flex;
+          align-items: center;
+        }
       }
 
     }

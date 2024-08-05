@@ -4,7 +4,6 @@
       <el-menu-item
           :index="item.path"
           @click="goRoute"
-          :data-title="item.meta ? item.meta.title : ''"
           v-if="!item.hidden && (!item.children || item.children.length < 1)">
         <el-icon>
           <component :is="item.meta.icon"></component>
@@ -14,7 +13,6 @@
 <!--    首页-->
     <el-menu-item
         @click="goRoute"
-        :data-title="item.meta ? item.meta.title : ''"
         :index="item.path"
         v-if="!item.meta && item.children && item.children.length === 1">
       <el-icon>
@@ -37,7 +35,6 @@
 import {useRouter} from "vue-router";
 
 defineProps(['menuList'])
-
 let $router = useRouter()
 const goRoute = (vc) => {
   $router.push(vc.index)

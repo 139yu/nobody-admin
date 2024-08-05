@@ -4,9 +4,10 @@
     <el-menu
         background-color="#001529"
         :collapse="layoutSettingsStore.menuCollapse"
+        :default-active="currentRoute"
         text-color="#fff"
         class="side-menu">
-        <side-bar-menu :menuList="userStore.currentUserMenus"></side-bar-menu>
+        <side-bar-menu :menuList="userStore.getRoutes()"></side-bar-menu>
     </el-menu>
   </el-scrollbar>
 </template>
@@ -16,8 +17,13 @@ import settings from "../../../settings.js";
 import SideBarMenu from './SideBarMenu/index.vue'
 import useLayoutSettingsStore from '@/store/modules/settings.js'
 import useUserStore from "@/store/modules/user.js";
+import {useRoute} from "vue-router";
+
 let layoutSettingsStore = useLayoutSettingsStore()
 let userStore = useUserStore()
+let $route = useRoute()
+let currentRoute = $route.path == '/home' ? '/' : $route.path
+
 </script>
 <style scope lang="scss">
 .side-bar{

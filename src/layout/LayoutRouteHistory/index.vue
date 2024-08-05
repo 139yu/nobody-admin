@@ -4,6 +4,11 @@
   </div>
 </template>
 <script setup>
+import {useRoute} from "vue-router";
+let $route = useRoute()
+let matched = $route.matched
+const historyRoutes = []
+
 </script>
 <style scope lang="scss">
 .route-history{

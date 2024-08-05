@@ -17,7 +17,28 @@ export const constantRouters = [
             }
         ]
     },
+    {
+        path: '/login',
+        component: () => import('@/view/login/index.vue'),
+        name: 'login',
+        hidden: true
+    },
 
+    {
+        path: '/404',
+        component: () => import('@/view/404/index.vue'),
+        name: '404',
+        hidden: true
+    }/*,
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/404',
+        name: 'Any',
+        hidden: true
+    }*/
+]
+
+export const asyncRouters = [
     {
         path: '/perms',
         component: Layout,
@@ -37,12 +58,12 @@ export const constantRouters = [
                 }
             },
             {
-                path: '/perms/menu',
-                component: () => import('@/view/perms/menu/index.vue'),
-                name: 'menu',
+                path: '/perms/resource',
+                component: () => import('@/view/perms/resource/index.vue'),
+                name: 'resource',
                 meta: {
-                    title: '菜单列表',
-                    icon: 'Monitor'
+                    title: '资源列表',
+                    icon: 'Star'
                 }
             }
         ]
@@ -57,6 +78,15 @@ export const constantRouters = [
         },
         children: [
             {
+                path: '/system/menu',
+                component: () => import('@/view/system/menu/index.vue'),
+                name: 'menu',
+                meta: {
+                    title: '菜单列表',
+                    icon: 'Monitor'
+                }
+            },
+            {
                 path: '/system/dict',
                 name: 'dict',
                 component: () => import('@/view/system/dict/index.vue'),
@@ -66,23 +96,5 @@ export const constantRouters = [
                 }
             }
         ]
-    },
-    {
-        path: '/login',
-        component: () => import('@/view/login/index.vue'),
-        name: 'login',
-        hidden: true
-    },
-    {
-        path: '/404',
-        component: () => import('@/view/404/index.vue'),
-        name: '404',
-        hidden: true
-    },
-    {
-        path: '/:pathMatch(.*)*',
-        redirect: '/404',
-        name: 'Any',
-        hidden: true
     }
 ]
