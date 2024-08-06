@@ -10,6 +10,7 @@ import LayoutTopBar from '../LayoutTopBar/index.vue'
 import LayoutRouteHistory from '../LayoutRouteHistory/index.vue'
 import LayoutMain from '../LayoutMain/index.vue'
 import useLayoutSettingsStore from '@/store/modules/settings.js'
+import settings from "../../../settings.js";
 
 let layoutSettingsStore = useLayoutSettingsStore()
 </script>

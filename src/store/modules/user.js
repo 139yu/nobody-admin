@@ -40,7 +40,6 @@ let useUserStore = defineStore('User',{
                 let menuList = userInfo.menuList
                 sortedMenu(menuList)
                 let finallyRouters = findFinallyRouters(menuList,asyncRouters)
-                console.log(finallyRouters)
                 this.userRouters = finallyRouters
             }else {
                 return Promise.reject(new Error(result.data.message))
