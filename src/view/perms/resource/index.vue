@@ -1,5 +1,15 @@
 <template>
-  <h1>菜单列表</h1>
+  <div class="resource-container">
+
+  </div>
 </template>
-<script setup></script>
-<style scope></style>
+<script setup>
+import {onMounted} from "vue";
+
+const fetchData = () => {
+
+}
+</script>
+<style scope>
+
+</style>

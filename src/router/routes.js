@@ -58,12 +58,30 @@ export const asyncRouters = [
                 }
             },
             {
+                path: '/perms/role',
+                component: () => import('@/view/perms/role/index.vue'),
+                name: 'role',
+                meta: {
+                    title: '角色列表',
+                    icon: 'User'
+                }
+            },
+            {
                 path: '/perms/resource',
                 component: () => import('@/view/perms/resource/index.vue'),
                 name: 'resource',
                 meta: {
                     title: '资源列表',
                     icon: 'Star'
+                }
+            },
+            {
+                path: '/perms/resourceCategory',
+                component: () => import('@/view/perms/resourceCategory/index.vue'),
+                name: 'resourceCategory',
+                meta: {
+                    title: '资源分类',
+                    icon: 'Guide'
                 }
             }
         ]

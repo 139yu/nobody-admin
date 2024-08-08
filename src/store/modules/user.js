@@ -90,6 +90,9 @@ const findFinallyRouters = (userRouters,routers) => {
     userRouters.forEach(userRouter => {
         let destRouter = routers.find(item => item.path === userRouter.path)
         if (destRouter){
+            if (userRouter.icon){
+                destRouter.meta.icon = userRouter.icon
+            }
             if (userRouter.children && destRouter.children){
                 destRouter.children = findFinallyRouters(userRouter.children,destRouter.children)
             }

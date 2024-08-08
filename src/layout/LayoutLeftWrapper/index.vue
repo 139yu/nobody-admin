@@ -18,7 +18,6 @@ let layoutSettingsStore = useLayoutSettingsStore()
 .left-wrapper{
   width: calc(100% - $side-bar-width);
   height: 100vh;
-  background-color: yellowgreen;
   overflow: hidden;
   transition: all .3s;
   &.collapse{

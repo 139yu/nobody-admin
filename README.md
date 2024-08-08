@@ -164,7 +164,7 @@ const allGlobalComponent = {SvgIcon}
 export default {
     install(app){
         Object.keys(allGlobalComponent).forEach(key => {
-            app.use(key,allGlobalComponent[key])
+            app.component(key,allGlobalComponent[key])
         })
         
     }
